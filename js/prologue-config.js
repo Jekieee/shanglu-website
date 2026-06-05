@@ -6,10 +6,18 @@ const PROLOGUE_CODES = {
   '阿花': '5068',
 };
 
+const PROLOGUE_FILES = {
+  '达泽明': 'assets/prologue/dzm.png',
+  '张雅文': 'assets/prologue/zyw.png',
+  '达雯菁': 'assets/prologue/dwj.png',
+  '张卓君': 'assets/prologue/zzj.png',
+  '阿花': 'assets/prologue/ah.png',
+};
+
 function verifyProloguePassword(char, input) {
   const code = input.trim();
   if (PROLOGUE_CODES[char] && code === PROLOGUE_CODES[char]) {
-    return { char, file: `assets/prologue/${char}序幕.PNG` };
+    return { char, file: PROLOGUE_FILES[char] };
   }
   return null;
 }

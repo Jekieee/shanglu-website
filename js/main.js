@@ -47,7 +47,7 @@
   revealEls.forEach((el) => observer.observe(el));
 
   function showPrologue(char) {
-    lightboxImg.src = `assets/prologue/${char}序幕.PNG`;
+    lightboxImg.src = PROLOGUE_FILES[char];
     lightboxImg.alt = `${char} 序幕`;
     lightboxName.textContent = `${char} · 序幕`;
     lightbox.classList.add('active');
