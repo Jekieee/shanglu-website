@@ -619,10 +619,14 @@ body {
 
 .lightbox img {
   max-width: 90vw;
-  max-height: 80vh;
+  max-height: 85vh;
   object-fit: contain;
   border-radius: 4px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox.prologue-lightbox img {
+  max-height: 90vh;
 }
 
 .lightbox-name {

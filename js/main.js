@@ -6,8 +6,15 @@
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxName = document.getElementById('lightboxName');
   const lightboxClose = document.getElementById('lightboxClose');
+  const prologueModal = document.getElementById('prologueModal');
+  const prologueModalTitle = document.getElementById('prologueModalTitle');
+  const prologueInput = document.getElementById('prologueInput');
+  const prologueSubmit = document.getElementById('prologueSubmit');
+  const prologueError = document.getElementById('prologueError');
+  const prologueModalClose = document.getElementById('prologueModalClose');
   const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
+  let currentChar = '';
 
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
@@ -39,16 +46,57 @@
 
   revealEls.forEach((el) => observer.observe(el));
 
+  function showPrologue(char) {
+    lightboxImg.src = `assets/prologue/${char}序幕.PNG`;
+    lightboxImg.alt = `${char} 序幕`;
+    lightboxName.textContent = `${char} · 序幕`;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function openPrologueModal(char) {
+    currentChar = char;
+    prologueModalTitle.textContent = `${char} · 序幕`;
+    prologueInput.value = '';
+    prologueError.textContent = '';
+    prologueModal.classList.add('active');
+    prologueInput.focus();
+  }
+
+  function closePrologueModal() {
+    prologueModal.classList.remove('active');
+    currentChar = '';
+  }
+
+  function tryUnlockPrologue() {
+    const result = verifyProloguePassword(currentChar, prologueInput.value);
+    if (!result) {
+      prologueError.textContent = '密钥错误，请重试';
+      return;
+    }
+    setPrologueUnlocked(result.char);
+    closePrologueModal();
+    showPrologue(result.char);
+  }
+
   document.querySelectorAll('.char-card').forEach((card) => {
     card.addEventListener('click', () => {
-      const img = card.querySelector('img');
-      const name = card.dataset.char;
-      lightboxImg.src = img.src;
-      lightboxImg.alt = name;
-      lightboxName.textContent = name;
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      const char = card.dataset.char;
+      if (isPrologueUnlocked(char)) {
+        showPrologue(char);
+      } else {
+        openPrologueModal(char);
+      }
     });
+  });
+
+  prologueSubmit.addEventListener('click', tryUnlockPrologue);
+  prologueInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') tryUnlockPrologue();
+  });
+  prologueModalClose.addEventListener('click', closePrologueModal);
+  prologueModal.addEventListener('click', (e) => {
+    if (e.target === prologueModal) closePrologueModal();
   });
 
   function closeLightbox() {
@@ -61,11 +109,13 @@
     if (e.target === lightbox) closeLightbox();
   });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'Escape') {
+      closeLightbox();
+      closePrologueModal();
+    }
   });
 
   let particles = [];
-  let animId;
 
   function resizeCanvas() {
     canvas.width = window.innerWidth;
@@ -113,7 +163,7 @@
       ctx.fill();
     });
 
-    animId = requestAnimationFrame(drawParticles);
+    requestAnimationFrame(drawParticles);
   }
 
   resizeCanvas();

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/map.css">
 </head>
 <body>
   <div class="noise-overlay"></div>
@@ -96,7 +97,7 @@
       <div class="section-header">
         <span class="section-label">登场人物</span>
         <h2 class="section-title">五个灵魂，一条不归路</h2>
-        <p class="section-desc">每个人都有自己的秘密，每个人都在掩盖真相。</p>
+        <p class="section-desc">点击人物封面，输入密钥阅读你的序幕。</p>
       </div>
       <div class="char-grid">
         <article class="char-card" data-char="达泽明">
@@ -198,12 +199,24 @@
     </div>
   </footer>
 
+  <div class="unlock-modal" id="prologueModal">
+    <div class="unlock-panel">
+      <button class="unlock-close" id="prologueModalClose" aria-label="关闭">&times;</button>
+      <h2 id="prologueModalTitle">解锁序幕</h2>
+      <p class="unlock-hint">请输入 DM 发放的四位密钥</p>
+      <input type="text" id="prologueInput" class="unlock-input" placeholder="例：4057" maxlength="4" inputmode="numeric" autocomplete="off" spellcheck="false">
+      <p class="unlock-error" id="prologueError"></p>
+      <button class="unlock-submit" id="prologueSubmit">阅读序幕</button>
+    </div>
+  </div>
+
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" id="lightboxClose" aria-label="关闭">&times;</button>
     <img src="" alt="" id="lightboxImg">
     <p class="lightbox-name" id="lightboxName"></p>
   </div>
 
+  <script src="js/prologue-config.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
