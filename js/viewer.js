@@ -12,4 +12,5 @@
   document.getElementById('viewerChar').textContent = char;
   document.getElementById('viewerLoc').textContent = location;
   document.getElementById('pdfFrame').src = `materials/${char}/${location}.pdf`;
+  clearUnlocked(location, char);
 })();

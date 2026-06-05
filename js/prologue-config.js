@@ -21,11 +21,3 @@ function verifyProloguePassword(char, input) {
   }
   return null;
 }
-
-function isPrologueUnlocked(char) {
-  return sessionStorage.getItem(`prologue:${char}`) === '1';
-}
-
-function setPrologueUnlocked(char) {
-  sessionStorage.setItem(`prologue:${char}`, '1');
-}

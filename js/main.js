@@ -74,19 +74,13 @@
       prologueError.textContent = '密钥错误，请重试';
       return;
     }
-    setPrologueUnlocked(result.char);
     closePrologueModal();
     showPrologue(result.char);
   }
 
   document.querySelectorAll('.char-card').forEach((card) => {
     card.addEventListener('click', () => {
-      const char = card.dataset.char;
-      if (isPrologueUnlocked(char)) {
-        showPrologue(char);
-      } else {
-        openPrologueModal(char);
-      }
+      openPrologueModal(card.dataset.char);
     });
   });
 

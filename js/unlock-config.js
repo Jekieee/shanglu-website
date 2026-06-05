@@ -39,3 +39,7 @@ function isUnlocked(location, char) {
 function setUnlocked(location, char) {
   sessionStorage.setItem(`unlock:${location}:${char}`, '1');
 }
+
+function clearUnlocked(location, char) {
+  sessionStorage.removeItem(`unlock:${location}:${char}`);
+}
