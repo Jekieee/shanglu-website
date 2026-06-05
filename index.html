@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>上路 · 剧本杀</title>
+  <meta name="description" content="时辰到了，该上路了。迷城剧本推理工作室出品，作者小乔。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="noise-overlay"></div>
+  <canvas id="particles"></canvas>
+
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">上路</a>
+    <ul class="nav-links">
+      <li><a href="#story">故事</a></li>
+      <li><a href="#characters">人物</a></li>
+      <li><a href="#info">信息</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <header class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="人物海报简介/IMG_9836.PNG" alt="上路 剧本杀封面" class="hero-img">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-tag">迷城剧本推理工作室</p>
+      <h1 class="hero-title">上路</h1>
+      <p class="hero-subtitle">SHANGLU</p>
+      <p class="hero-quote">"时辰到了，该上路了。"</p>
+      <a href="#story" class="hero-cta">
+        <span>进入故事</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </a>
+    </div>
+    <div class="hero-scroll">
+      <span>向下滚动</span>
+      <div class="scroll-line"></div>
+    </div>
+  </header>
+
+  <section class="story" id="story">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-visual">
+          <img src="人物海报简介/IMG_9835.PNG" alt="上路 故事简介" class="story-img">
+          <div class="story-img-frame"></div>
+        </div>
+        <div class="story-text">
+          <span class="section-label">故事背景</span>
+          <h2 class="section-title">一家五口，夜行国道上</h2>
+          <div class="story-body">
+            <p>夜色深沉，一辆轿车行驶在空旷的国道上。父亲手握方向盘，目光空洞；母亲在后座默默数着人数——</p>
+            <p class="story-count">"1……2……3……1……2……3……"</p>
+            <p>三个孩子坐在后排，困惑地望着窗外扭曲的紫色天空。他们不明白，那个曾经温馨的家，究竟发生了什么。</p>
+            <p>车窗外，山峦起伏，天色诡谲。没有人记得，他们究竟要去往何方。</p>
+          </div>
+          <div class="story-meta">
+            <div class="meta-item">
+              <span class="meta-label">类型</span>
+              <span class="meta-value">恐怖 · 推理 · 还原</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">人数</span>
+              <span class="meta-value">5人</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">时长</span>
+              <span class="meta-value">约4-5小时</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="characters" id="characters">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">登场人物</span>
+        <h2 class="section-title">五个灵魂，一条不归路</h2>
+        <p class="section-desc">每个人都有自己的秘密，每个人都在掩盖真相。</p>
+      </div>
+      <div class="char-grid">
+        <article class="char-card" data-char="达泽明">
+          <div class="char-img-wrap">
+            <img src="人物海报简介/IMG_9837.PNG" alt="达泽明" loading="lazy">
+            <div class="char-overlay"></div>
+          </div>
+          <div class="char-info">
+            <h3>达泽明</h3>
+            <span class="char-role">父亲</span>
+          </div>
+        </article>
+        <article class="char-card" data-char="张雅文">
+          <div class="char-img-wrap">
+            <img src="人物海报简介/IMG_9841.PNG" alt="张雅文" loading="lazy">
+            <div class="char-overlay"></div>
+          </div>
+          <div class="char-info">
+            <h3>张雅文</h3>
+            <span class="char-role">母亲</span>
+          </div>
+        </article>
+        <article class="char-card" data-char="达雯菁">
+          <div class="char-img-wrap">
+            <img src="人物海报简介/IMG_9840.PNG" alt="达雯菁" loading="lazy">
+            <div class="char-overlay"></div>
+          </div>
+          <div class="char-info">
+            <h3>达雯菁</h3>
+            <span class="char-role">大女儿</span>
+          </div>
+        </article>
+        <article class="char-card" data-char="张卓君">
+          <div class="char-img-wrap">
+            <img src="人物海报简介/IMG_9839.PNG" alt="张卓君" loading="lazy">
+            <div class="char-overlay"></div>
+          </div>
+          <div class="char-info">
+            <h3>张卓君</h3>
+            <span class="char-role">儿子</span>
+          </div>
+        </article>
+        <article class="char-card" data-char="阿花">
+          <div class="char-img-wrap">
+            <img src="人物海报简介/IMG_9838.PNG" alt="阿花" loading="lazy">
+            <div class="char-overlay"></div>
+          </div>
+          <div class="char-info">
+            <h3>阿花</h3>
+            <span class="char-role">小女儿</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="atmosphere">
+    <div class="atmo-content">
+      <blockquote>
+        <p>不要回头。</p>
+        <p>不要数数。</p>
+        <p>不要问，车后面跟着谁。</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="info" id="info">
+    <div class="container">
+      <div class="info-grid">
+        <div class="info-card">
+          <span class="info-icon">✍</span>
+          <h3>作者</h3>
+          <p>小乔</p>
+        </div>
+        <div class="info-card">
+          <span class="info-icon">🏢</span>
+          <h3>发行</h3>
+          <p>迷城剧本推理工作室</p>
+        </div>
+        <div class="info-card">
+          <span class="info-icon">🎨</span>
+          <h3>美工</h3>
+          <p>小让 V0</p>
+        </div>
+        <div class="info-card">
+          <span class="info-icon">📖</span>
+          <h3>题材</h3>
+          <p>恐怖推理 · 家庭伦理 · 中式惊悚</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-title">上路</p>
+      <p class="footer-credit">作者 小乔 × 发行 迷城 · 美工 小让 V0</p>
+      <p class="footer-copy">迷城剧本推理工作室</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="关闭">&times;</button>
+    <img src="" alt="" id="lightboxImg">
+    <p class="lightbox-name" id="lightboxName"></p>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
