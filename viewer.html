@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>上路 · 资料</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/map.css">
+</head>
+<body class="viewer-page">
+  <nav class="nav scrolled">
+    <a href="index.html" class="nav-logo">上路</a>
+    <ul class="nav-links">
+      <li><a href="map.html">返回地图</a></li>
+      <li><a href="index.html">首页</a></li>
+    </ul>
+  </nav>
+
+  <main class="viewer-container">
+    <header class="viewer-header">
+      <h1 id="viewerTitle">资料</h1>
+      <div class="viewer-meta">
+        <span id="viewerChar"></span>
+        <span class="viewer-divider">·</span>
+        <span id="viewerLoc"></span>
+      </div>
+    </header>
+    <div class="viewer-frame-wrap">
+      <iframe id="pdfFrame" title="剧本资料" class="pdf-frame"></iframe>
+    </div>
+  </main>
+
+  <script src="js/unlock-config.js"></script>
+  <script src="js/viewer.js"></script>
+</body>
+</html>

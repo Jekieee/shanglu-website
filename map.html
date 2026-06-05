@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>上路 · 地图</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/map.css">
+</head>
+<body class="map-page">
+  <nav class="nav scrolled">
+    <a href="index.html" class="nav-logo">上路</a>
+    <ul class="nav-links">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="map.html">地图</a></li>
+    </ul>
+  </nav>
+
+  <main class="map-container">
+    <header class="map-header">
+      <h1>选择目的地</h1>
+      <p>点击地图上的地点，输入你的解锁码查看资料</p>
+    </header>
+
+    <div class="map-wrapper">
+      <img src="assets/map/IMG_9832.PNG" alt="上路地图" class="map-image">
+      <button class="map-hotspot" data-location="大坝" style="left:8%;top:12%;width:22%;height:18%" aria-label="大坝">
+        <span>大坝</span>
+      </button>
+      <button class="map-hotspot" data-location="寺庙" style="left:68%;top:8%;width:22%;height:20%" aria-label="寺庙">
+        <span>寺庙</span>
+      </button>
+      <button class="map-hotspot" data-location="公路" style="left:28%;top:38%;width:24%;height:16%" aria-label="公路">
+        <span>公路</span>
+      </button>
+      <button class="map-hotspot" data-location="医院" style="left:58%;top:40%;width:22%;height:18%" aria-label="医院">
+        <span>医院</span>
+      </button>
+      <button class="map-hotspot" data-location="家" style="left:6%;top:62%;width:24%;height:22%" aria-label="家">
+        <span>家</span>
+      </button>
+      <button class="map-hotspot" data-location="郊县" style="left:62%;top:68%;width:28%;height:22%" aria-label="郊县">
+        <span>郊县</span>
+      </button>
+    </div>
+  </main>
+
+  <div class="unlock-modal" id="unlockModal">
+    <div class="unlock-panel">
+      <button class="unlock-close" id="modalClose" aria-label="关闭">&times;</button>
+      <h2 id="modalTitle">解锁</h2>
+      <p class="unlock-hint">请输入 DM 发放的解锁码</p>
+      <input type="text" id="unlockInput" class="unlock-input" placeholder="例：ZZJ1208" autocomplete="off" spellcheck="false">
+      <p class="unlock-error" id="unlockError"></p>
+      <button class="unlock-submit" id="unlockSubmit">解锁资料</button>
+    </div>
+  </div>
+
+  <script src="js/unlock-config.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>

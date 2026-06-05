@@ -1,0 +1,250 @@
+.map-page,
+.viewer-page {
+  min-height: 100vh;
+  background: var(--bg-deep);
+}
+
+.map-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem 3rem;
+}
+
+.map-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.map-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  letter-spacing: 0.3em;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.map-header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+}
+
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(74, 45, 122, 0.25);
+}
+
+.map-image {
+  width: 100%;
+  display: block;
+}
+
+.map-hotspot {
+  position: absolute;
+  background: rgba(91, 143, 212, 0.08);
+  border: 1px solid rgba(91, 143, 212, 0.25);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 0;
+}
+
+.map-hotspot span {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: rgba(232, 228, 240, 0.7);
+  background: rgba(6, 6, 15, 0.7);
+  padding: 2px 8px;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.map-hotspot:hover,
+.map-hotspot:focus {
+  background: rgba(91, 143, 212, 0.22);
+  border-color: var(--blue-glow);
+  box-shadow: 0 0 20px rgba(91, 143, 212, 0.2);
+  outline: none;
+}
+
+.map-hotspot:hover span,
+.map-hotspot:focus span {
+  opacity: 1;
+}
+
+.unlock-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(6, 6, 15, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s;
+  backdrop-filter: blur(8px);
+  padding: 1.5rem;
+}
+
+.unlock-modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.unlock-panel {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  background: var(--bg-card);
+  border: 1px solid rgba(74, 45, 122, 0.3);
+  border-radius: 6px;
+  padding: 2.5rem 2rem 2rem;
+  text-align: center;
+}
+
+.unlock-close {
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.unlock-close:hover {
+  color: var(--red-bright);
+}
+
+.unlock-panel h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.unlock-hint {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.unlock-input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: rgba(6, 6, 15, 0.6);
+  border: 1px solid rgba(74, 45, 122, 0.4);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.unlock-input:focus {
+  outline: none;
+  border-color: var(--blue-glow);
+  box-shadow: 0 0 15px rgba(91, 143, 212, 0.15);
+}
+
+.unlock-error {
+  color: var(--red-bright);
+  font-size: 0.85rem;
+  min-height: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.unlock-submit {
+  width: 100%;
+  padding: 0.85rem;
+  background: rgba(74, 45, 122, 0.4);
+  border: 1px solid rgba(91, 143, 212, 0.4);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.unlock-submit:hover {
+  background: rgba(74, 45, 122, 0.6);
+  border-color: var(--blue-glow);
+}
+
+.viewer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 1rem 1.5rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.viewer-header {
+  text-align: center;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+
+.viewer-header h1 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.25em;
+  font-weight: 400;
+}
+
+.viewer-meta {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  margin-top: 0.3rem;
+}
+
+.viewer-divider {
+  margin: 0 0.4rem;
+  color: var(--text-dim);
+}
+
+.viewer-frame-wrap {
+  flex: 1;
+  min-height: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(74, 45, 122, 0.25);
+  background: #111;
+}
+
+.pdf-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .map-hotspot span {
+    opacity: 1;
+    font-size: 0.65rem;
+  }
+
+  .viewer-container {
+    padding-top: 4.5rem;
+  }
+}
